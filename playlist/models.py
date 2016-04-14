@@ -4,13 +4,15 @@ from django.db import models
 
 # Create your models here.
 class Playlist(models.Model):
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
+    spotify_id = models.CharField(max_length=100)
+    description = models.TextField(max_length=600)
+    likes = models.IntegerField()
+    follows = models.IntegerField()
 
 class Tag(models.Model):
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
+    category = models.CharField(max_length=25)
+    name = models.CharField(max_length=25)
 
 class TagInstance(models.Model):
-    first_name = models.CharField(max_length=30)
-    last_name = models.CharField(max_length=30)
+    tag = models.ForeignKey(Tag)
+    playlist = models.ForeignKey(Playlist)
