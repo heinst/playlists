@@ -3,12 +3,11 @@ import spotipy
 import spotipy.util as util
 
 
-def get_playlist_length(uname, pid):
+def get_playlist_length(tracks):
 
     durations = []
-    results = sp.user_playlist_tracks(uname, playlist_id=pid)
-    for item in results['items']:
-        durations.append(item['track']['duration_ms'])
+    for track in tracks:
+        durations.append(track['duration_ms'])
     msTotal = sum(durations)
     x = msTotal / 1000
     seconds = x % 60
