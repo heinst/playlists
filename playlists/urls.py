@@ -1,3 +1,4 @@
+
 """playlists URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -15,7 +16,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+import playlist.views as playlist_views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^playlist$', playlist_views.index),
+    url(r'^playlistseed', playlist_views.seed),
 ]
